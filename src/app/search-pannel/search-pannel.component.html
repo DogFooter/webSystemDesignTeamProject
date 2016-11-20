@@ -1,0 +1,18 @@
+<div class="row panel panel-default">
+    <div class="panel-body">
+        <form class="form-group" action="">
+            <div class="form-group">
+                <input class="form-control" [(ngModel)]="fromDate" name="fromDate" type="date">
+                <input class="form-control" [(ngModel)]="toDate" name="toDate" type="date">
+            </div>
+            <br >
+            <div class="form-group">
+                <select  class="form-control" [(ngModel)]="selectedNation" name="selectedNation">
+                    <option class="form-control" *ngFor="let loc of locations" [ngValue]="loc">{{loc}}</option>
+                </select>
+                <button class="btn btn-default" data-toggle="collapse" data-target="#search-result">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer"></div>
+</div>
