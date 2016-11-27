@@ -1,18 +1,26 @@
 <div class="row panel panel-default">
-    <div class="panel-body">
+    <div class="panel-heading">
+        <h1>검색 패널</h1>
+    </div>
+    <div class="panel-body row">
         <form class="form-group" action="">
-            <div class="form-group">
-                <input class="form-control" [(ngModel)]="fromDate" name="fromDate" type="date">
-                <input class="form-control" [(ngModel)]="toDate" name="toDate" type="date">
+            <div class="form-group col-xs-4 search-box">
+                <label for="selectDur">여행 기간 </label>
+                <select id="selectDur"  class="form-control" [(ngModel)]="selectedDuration" name="selectedNation">
+                    <option class="form-control" *ngFor="let day of day_list" [ngValue]="day">{{day}}</option>
+                </select>
             </div>
-            <br >
-            <div class="form-group">
-                <select  class="form-control" [(ngModel)]="selectedNation" name="selectedNation">
+            <div class="form-group col-xs-5 search-box">
+                <label for="selectNat">여행할 나라 </label>
+                <select id="selectNat" class="form-control" [(ngModel)]="selectedNation" name="selectedNation">
                     <option class="form-control" *ngFor="let loc of locations" [ngValue]="loc">{{loc}}</option>
                 </select>
-                <button class="btn btn-default" data-toggle="collapse" data-target="#search-result">Search</button>
             </div>
+            <div class="col-xs-3 search-box">
+                <label for="search-btn">여행</label>
+                <button id="search-btn" class="btn btn-default btn-center form-control" data-toggle="collapse" data-target="#search-result">Search</button>
+            </div>
+
         </form>
     </div>
-    <div class="panel-footer"></div>
 </div>

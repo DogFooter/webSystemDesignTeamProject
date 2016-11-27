@@ -1,0 +1,8 @@
+
+<sebm-google-map [latitude]="pos[0]" [longitude]="pos[1]" [zoom]="10" (mapClick)="mapClicked($event)" >
+    <sebm-google-map-marker *ngFor="let point of paths" [latitude]="point.lat" [longitude]="point.lng"></sebm-google-map-marker>
+    <sebm-google-map-polyline>
+        <sebm-google-map-polyline-point *ngFor="let point of paths" [latitude]="point.lat" [longitude]="point.lng"></sebm-google-map-polyline-point>
+    </sebm-google-map-polyline>
+</sebm-google-map>
+{{pos}}

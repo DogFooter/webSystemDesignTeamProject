@@ -3,3 +3,12 @@
 }
 .sp-btn {
 }
+
+.btn-center {
+    float: none;
+    margin: auto;
+}
+
+.search-box {
+    height: 100%;
+}
