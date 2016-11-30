@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MouseEvent, LatLngLiteral } from 'angular2-google-maps/core';
+import { PostService } from '../post.service';
+import { Post } from '../post';
 
 @Component({
-  selector: 'app-read-post',
-  templateUrl: './read-post.component.html',
-  styleUrls: ['./read-post.component.css']
+    selector: 'app-read-post',
+    templateUrl: './read-post.component.html',
+    styleUrls: ['./read-post.component.css'],
+    providers: [PostService]
 })
 export class ReadPostComponent implements OnInit {
 
-    pos: number[] = [35,127];
-    
-    paths: Array<LatLngLiteral> = [];
-    constructor() {
+    @Input() postNumber: number;
+    post: Post;
 
-    }
+    constructor(private postService: PostService) {
+    } 
 
     ngOnInit() {
+        this.getPost() 
     }
 
-    mapClicked($event: MouseEvent) {
-        this.pos = [ $event.coords.lat, $event.coords.lng ];
-        this.paths[this.paths.length] = {lat: this.pos[0], lng: this.pos[1]};
-        console.log(this.paths);
+    getPost() {
+        this.postService.getPost(this.postNumber).subscribe(
+            post => this.post = post 
+        );
     }
+
 
 }

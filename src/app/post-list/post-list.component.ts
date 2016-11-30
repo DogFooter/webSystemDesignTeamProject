@@ -1,21 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { PostStuff } from '../post-stuff';
-import { POST_MOCK } from '../post_mock';
+import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { Post } from '../post';
+import { PostService } from '../post.service';
+import { SearchListParams } from '../search-list-params';
 
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+    selector: 'app-post-list',
+    templateUrl: './post-list.component.html',
+    styleUrls: ['./post-list.component.css'],
+    providers: [ PostService ]
+
 })
-export class PostListComponent implements OnInit {
+export class PostListComponent implements OnInit, OnChanges {
 
-    post_list: PostStuff[];
+    @Input() listParams: SearchListParams;
 
-    constructor() {
-        this.post_list = POST_MOCK;
+    posts: Post[];
+
+    constructor(private postService: PostService) {
     }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.getPosts();
+    }
+
+    ngOnChanges(change: SimpleChanges) {
+        this.getPosts();
+    }
+
+    getPosts() {
+        this.postService.getPosts(this.listParams.query).subscribe(
+            posts => this.posts = posts
+        );
+    }
 
 }

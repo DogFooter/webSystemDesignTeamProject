@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {LOC_MOK} from '../location-mock';
+import { SearchListParams } from '../search-list-params';
 
 @Component({
     selector: 'app-search-pannel',
@@ -8,25 +9,47 @@ import {LOC_MOK} from '../location-mock';
 })
 export class SearchPannelComponent implements OnInit {
 
+    @Output('searchParams') searchEventEmitter: EventEmitter<SearchListParams> = new EventEmitter();
+
     locations: String[] = LOC_MOK;
-    day_list: number[] = [];
+    day_list: String[] = [];
 
-    search_inform: String[];
-
+    search_inform: String[]; 
     selectedNation: String;
-    selectedDuration: number;
+    selectedDuration:String ;
 
 
     constructor() {
         this.selectedNation = this.locations[0]
-        for (let i = 0; i < 30; i++){
-            this.day_list[i] = i+1;
+        this.day_list[0] = "날짜 선택"
+        for (let i = 1; i <= 30; i++){
+            this.day_list[i] = i+1 + '';
         }
         this.selectedDuration = this.day_list[0];
 
 
     }
 
+    submitFind() {
+        var query = '';
+        if (this.selectedNation != this.locations[0]) {
+            query = query + 'nation=' + this.selectedNation;
+        }
+        if (this.selectedDuration != this.day_list[0]) {
+            if (query == '') { 
+                query = query + 'duration=' + this.selectedDuration;
+            }
+            else { 
+                query = query + '&duration=' + this.selectedDuration;
+            }
+        }
+        var listParams =  new SearchListParams(query, '찾으신 여행');
+        
+        console.log('in search com:' + JSON.stringify(listParams) )
+
+        this.searchEventEmitter.emit(listParams);
+
+    }
 
     ngOnInit() {
     }

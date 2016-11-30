@@ -24,7 +24,7 @@ export class WritePostComponent implements OnInit {
     constructor(private postService: PostService) {
 
         this.currentMarkerIndex = 0;
-        this.currentMarker = new MapMarker(-1, [0,0],"","", [0,0,0,0,0]);
+        this.currentMarker = new MapMarker([0,0],"","", [0,0,0,0,0]);
         this.currentPost = new Post("", "","dogfooter","",-1 , []);
     }
 
@@ -34,14 +34,19 @@ export class WritePostComponent implements OnInit {
 
     submitPost() {
         this.currentPost.markers = this.markers;
-        console.log(this.postService.addPost(this.currentPost));
+        console.log(this.currentPost);
+        this.postService.addPost(this.currentPost).subscribe(
+            post => this.currentPost = post
+        );
+        
+        
     }
 
     mapClicked($event: MouseEvent) {
         this.pos = [ $event.coords.lat, $event.coords.lng ];
         this.paths[this.paths.length] = {lat: this.pos[0], lng: this.pos[1]};
         this.show_writing = true;
-        let tmpMarker = new MapMarker(this.marker_number, this.pos, "", "", [0,0,0,0,0]);
+        let tmpMarker = new MapMarker(this.pos, "", "", [0,0,0,0,0]);
         this.markers[this.marker_number] = tmpMarker;
         this.currentMarker = this.markers[this.marker_number];
         this.currentMarkerIndex = this.marker_number;
@@ -77,7 +82,7 @@ export class WritePostComponent implements OnInit {
         else {
             this.marker_number = 0;
             this.currentMarkerIndex = 0;
-            this.currentMarker = new MapMarker(-1, [0,0],"","", [0,0,0,0,0]);
+            this.currentMarker = new MapMarker([0,0],"","", [0,0,0,0,0]);
         }
 
     }
