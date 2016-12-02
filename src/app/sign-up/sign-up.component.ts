@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
 
     signUp() {
         this.userService.signUp(this.newUser).subscribe(
-            data => data ? this.router.navigate(['/login']) : alert("Sign-Up fail retry please")
+            data => data ? console.log(data) :alert("Sign-Up fail retry please") 
         );
     }
 
