@@ -1,0 +1,72 @@
+h1 {
+    margin: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    min-height: 400px;
+    width: 100%;
+    background-color: #009688;
+}
+.main-title {
+    text-align: center;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.content {
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    overflow: hidden;
+}
+
+.content header {
+    position: relative;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    
+    font-family: 'Titillium Web', sans-serif;
+    padding: 3rem;
+    padding-left: auto;
+    padding-right: auto;
+
+    font-size: 1.7rem;
+    transform: translateX(-50%) translateY(-50%);
+    
+    background-color: rgba(0,0,0,0.4);
+}
+
+.content header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.content form {
+    margin-top: 1rem;
+}
+
+.one {
+    background-image: url("http://artinsight.co.kr/n_news/peg/1505/f6b5d08c318ced8c5d377f9d28bdfb64_ioKZpGnLwKrpyFCZKe4.JPG");
+    
+}
+.two {
+    background-image: url("https://i.ytimg.com/vi/xD2jjDJIzNo/maxresdefault.jpg");
+}
+.three {
+    background-image: url("http://hnzyzb.com/data/out/2/44265100-beautiful-wallpapers.jpg");
+}

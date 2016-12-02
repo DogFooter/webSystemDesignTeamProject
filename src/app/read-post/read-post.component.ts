@@ -11,10 +11,14 @@ import { Post } from '../post';
 })
 export class ReadPostComponent implements OnInit {
 
-    @Input() postNumber: number;
+    postNumber: number;
     post: Post;
 
+
     constructor(private postService: PostService) {
+        var s = window.location.href.split('/');
+
+        this.postNumber = parseInt(s[s.length-1]);
     } 
 
     ngOnInit() {

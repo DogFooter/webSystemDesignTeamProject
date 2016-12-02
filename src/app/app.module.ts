@@ -15,6 +15,19 @@ import { ReadPostComponent } from './read-post/read-post.component';
 import { WritePostComponent } from './write-post/write-post.component';
 import { WritingPanelComponent } from './writing-panel/writing-panel.component';
 import { WritePostHeaderComponent } from './write-post-header/write-post-header.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
+
+import { Routes, RouterModule } from '@angular/router';
+import { SignUpComponent } from './sign-up/sign-up.component';
+
+const appRoutes: Routes = [
+    { path: 'read/:id', component: ReadPostComponent },
+    { path: 'posts', component: MainPageComponent },
+    { path: '', component: IntroPageComponent },
+    { path: 'write', component: WritePostComponent },
+    { path: 'register', component: SignUpComponent }
+]
+
 
 @NgModule({
   declarations: [
@@ -27,7 +40,9 @@ import { WritePostHeaderComponent } from './write-post-header/write-post-header.
     ReadPostComponent,
     WritePostComponent,
     WritingPanelComponent,
-    WritePostHeaderComponent
+    WritePostHeaderComponent,
+    IntroPageComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +50,8 @@ import { WritePostHeaderComponent } from './write-post-header/write-post-header.
     HttpModule,
     AgmCoreModule.forRoot({
         apiKey: 'AIzaSyCWG67BiV6hB6AW6QMpZqBkAgu9EaKwpcs'
-    })
+    }),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

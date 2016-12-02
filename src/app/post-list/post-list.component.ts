@@ -28,6 +28,7 @@ export class PostListComponent implements OnInit, OnChanges {
     }
 
     getPosts() {
+        console.log('get post');
         this.postService.getPosts(this.listParams.query).subscribe(
             posts => this.posts = posts
         );

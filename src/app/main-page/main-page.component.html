@@ -1,5 +1,4 @@
 <div class="container">
-    <app-nav-bar></app-nav-bar>
     <app-search-pannel (searchParams)="logParams($event)"></app-search-pannel>
     <app-post-list *ngIf="listParams" [listParams]="listParams"></app-post-list>
     <app-post-list [listParams]="mainListParams"></app-post-list>

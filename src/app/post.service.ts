@@ -7,8 +7,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PostService {
 
-    // private postUrl = 'http://localhost:3000/post';
-    // private postUrl = 'http://172.30.127.123:3000/post';
     private postUrl = '/post'
 
 
@@ -29,9 +27,6 @@ export class PostService {
     }
     
     
-    // addPost(post: Post): Post {
-    //     return post;
-    // }
 
     // this is for ajax
     //
@@ -45,9 +40,5 @@ export class PostService {
         ); 
     }
 
-    //
-    // getPosts(): Observable<Post[]> {
-    //     return this.http.get(this.postUrl).map((r:Response) => r.json().data as Post[]);
-    // }
 
 }

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="panel-info">
+        <div class="panel-heading">
+            회원가입
+        </div>
+        <div class="panel-body">
+            <form>
+                <label>Email*</label>
+                <input type="text" name="email" [(ngModel)]="newUser.email" required><br>
+                <label>Nickname*</label>
+                <input type="text" name="nickname" [(ngModel)]="newUser.nickname" required><br>
+                <label>Password*</label>
+                <input type="password" name="password" [(ngModel)]="newUser.password" required><br>
+                <label>Password Confirm*</label>
+                <input type="password" name="passwordConfirm" [(ngModel)]="passwordConfirm">
+                <button [disabled]="newUser.password!=passwordConfirm" type="button" (click)="signUp()">가입 완료</button>
+                <div *ngIf="newUser.password!=passwordConfirm">
+                    <div>비밀번호틀림</div><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
