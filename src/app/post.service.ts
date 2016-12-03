@@ -17,12 +17,12 @@ export class PostService {
     getPost(id: number): Observable<Post> {
         return this.http.get(this.postUrl+'/'+id).map((r:Response) => r.json().data as Post);
     }
-    getPosts(query: String): Observable<Post[]> {
+    getPosts(query: String): Observable<any> {
         if (query) {
-            return this.http.get(this.postUrl+'?'+query).map((r:Response) => r.json().data as Post[]);
+            return this.http.get(this.postUrl+'?'+query).map((r:Response) => r.json().data as any);
         }
         else {
-            return this.http.get(this.postUrl).map((r:Response) => r.json().data as Post[]);
+            return this.http.get(this.postUrl).map((r:Response) => r.json().data as any);
         }
     }
     

@@ -3,7 +3,7 @@
         "target": "http://192.168.43.201:3000",
         "secure": false
     },
-    "/new-user": {
+    "/user": {
         "target": "http://192.168.43.201:3000",
         "secure": false
     }

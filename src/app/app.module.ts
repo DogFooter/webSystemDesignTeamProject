@@ -19,13 +19,15 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
     { path: 'read/:id', component: ReadPostComponent },
-    { path: 'posts', component: MainPageComponent },
+    { path: 'main', component: MainPageComponent },
     { path: '', component: IntroPageComponent },
     { path: 'write', component: WritePostComponent },
-    { path: 'register', component: SignUpComponent }
+    { path: 'register', component: SignUpComponent },
+    { path: 'login', component: LoginComponent }
 ]
 
 
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     WritingPanelComponent,
     WritePostHeaderComponent,
     IntroPageComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

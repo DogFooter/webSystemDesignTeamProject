@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserService {
 
-    private userUrl = '/new-user';
+    private userUrl = '/user';
 
     constructor(private http: Http) { }
 
@@ -15,8 +15,8 @@ export class UserService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.userUrl, newUser, options).map(
-            (r: Response) => r.json() as any
+        return this.http.post(this.userUrl+'/register', newUser, options).map(
+            (r: Response) => r.json().data as any
         );
     }
 
@@ -24,8 +24,8 @@ export class UserService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.userUrl, user, options).map(
-            (r: Response) => r.json() as any
+        return this.http.post(this.userUrl+'/login', user, options).map(
+            (r: Response) => r.json().data as any
         );
     }
 
@@ -33,8 +33,8 @@ export class UserService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.userUrl, user, options).map(
-            (r: Response) => r.json() as any
+        return this.http.post(this.userUrl+"/logout", user, options).map(
+            (r: Response) => r.json().data as any
         );
     }
 }
