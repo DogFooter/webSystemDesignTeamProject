@@ -1,0 +1,40 @@
+.login-header{
+  font-size: 2em;
+  font-weight: bold;
+  color: darkblue;
+}
+.login{
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  font-size: 30px;
+}
+.background-col{
+  background-color: #f6f6f6;
+}
+.btn-login{
+  background-color: darkblue;
+  border: none;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 13px 128.7875px;
+}
+.input-component{
+  margin-bottom: 15px;
+  padding-left: 0;
+}
+.label-component{
+  margin-bottom: 15px;
+}
+.label-panel{
+  padding-right: 0;
+  text-align: right;
+}
+.input-panel{
+  padding-left: 0;
+}

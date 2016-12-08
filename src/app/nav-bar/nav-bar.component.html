@@ -1,26 +1,30 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
-            </button>
-            <a onClick="window.location.replace('/main')" class="navbar-brand">Leave Your FootPrint</a>
-        </div>
-        <div id="myNavbar" class="collapse navbar-collapse">
 
-            <ul class="nav navbar-nav"> 
-                <li> <a routerLink="/main"onClick="window.location.replace('/main')">메인 페이지</a></li>
-                <li *ngIf="user"> <a routerLink="/write">여행 작성</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li (click)="show_login=false"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <!-- <li *ngIf="!user"><a routerLink="/login"><span class="glyphicon glyphicon&#45;log&#45;in"></span> Login</a></li> -->
-                <li *ngIf="!user" ><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li *ngIf="user" ><a routerLink="/main" (click)="logOut()" onClick="window.location.replace('/main')"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
-            </ul>
-        </div>
+<div class="container">
+  <nav class="navbar navbar-search">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a onClick="window.location.replace('/main')" class="navbar-brand">Leave Your FootPrint</a>
+      </div>
+      <div id="myNavbar" class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav">
+          <li> <a routerLink="/main"onClick="window.location.replace('/main')">메인 페이지</a></li>
+          <li *ngIf="!user"> <a routerLink="/write">여행 작성</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li (click)="show_login=false"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <!-- <li *ngIf="!user"><a routerLink="/login"><span class="glyphicon glyphicon&#45;log&#45;in"></span> Login</a></li> -->
+          <li *ngIf="!user" ><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li *ngIf="user" ><a routerLink="/main" (click)="logOut()" onClick="window.location.replace('/main')"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
+</div>
+
 

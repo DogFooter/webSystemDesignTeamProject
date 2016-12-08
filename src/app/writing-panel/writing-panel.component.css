@@ -1,26 +1,30 @@
 .form-for-write-marker {
-    height: 40vh;
-    margin-bottom: 0;
+  height: 40vh;
+  margin-bottom: 0;
 }
 
 .marker-text {
-    margin-bottom: 2rem;
-
+  margin-bottom: 0;
 }
 
 .marker-text.title {
-    padding: 1rem;
-    font-size: 3rem;
+  padding: 1rem;
+  font-size: 2rem;
 }
 
 .marker-text.content {
-    width: 100%;
-    height: 60%;
+  width: 100%;
+  height: 30%;
 }
 
 .budget-input>.form-control {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 .budget-input>label {
-    font-size:34px;
+  font-size:12px;
+}
+
+.panel-location {
+  min-width:423.400px;
+  min-height: 273.275px;
 }

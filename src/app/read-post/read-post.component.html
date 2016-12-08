@@ -1,16 +1,16 @@
 
 <div *ngIf="post" class="content">
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h1>{{post.title}}</h1>
             <h3>{{post.duration}}</h3>
-            <h4>{{post.author}}</h4> 
+            <h4>{{post.author}}</h4>
         </div>
 
-        <div class="panel-body"> 
+        <div class="panel-body">
             <p>{{post.hint}}</p>
-        </div> 
+        </div>
     </div>
 
 
@@ -21,15 +21,15 @@
         </sebm-google-map-polyline>
     </sebm-google-map>
 
-    <div *ngFor="let marker of post.markers" class="panel panel-default">
+    <div *ngFor="let marker of post.markers" class="panel panel-primary">
         <div class="panel-heading">
             <h1>{{marker.title}}</h1>
         </div>
 
-        <div class="panel-body"> 
+        <div class="panel-body">
             <p>{{marker.content}}</p>
             <p>{{marker.budget}}$</p>
-        </div> 
+        </div>
     </div>
 </div>
 
