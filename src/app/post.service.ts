@@ -15,7 +15,7 @@ export class PostService {
     // this is for test with mock data
     // 
     getPost(id: number): Observable<Post> {
-        return this.http.get(this.postUrl+'/'+id).map((r:Response) => r.json().data as Post);
+        return this.http.get(this.postUrl+'/'+id).map((r:Response) => r.json().data.data as Post);
     }
     getPosts(query: String): Observable<any> {
         if (query) {
@@ -30,13 +30,13 @@ export class PostService {
 
     // this is for ajax
     //
-    addPost(post: Post): Observable<Post> {
+    addPost(post: Post): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         console.log(post);
         return this.http.post(this.postUrl,  post , options ).map(
-            (r: Response) => r.json() as Post
+            (r: Response) => r.json().data as any
         ); 
     }
 

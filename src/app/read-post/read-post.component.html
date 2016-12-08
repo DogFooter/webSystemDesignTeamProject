@@ -14,7 +14,7 @@
     </div>
 
 
-    <sebm-google-map *ngIf="post.markers" [latitude]="post.markers[0].pos[0]" [longitude]="post.markers[0].pos[1]" [zoom]="10" >
+    <sebm-google-map *ngIf="post.markers" [latitude]="post.markers[0].pos[0]" [longitude]="post.markers[0].pos[1]" [zoom]="15" >
         <sebm-google-map-marker *ngFor="let marker of post.markers; let i = index"  [iconUrl]="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+(i+1)+'|FE6256|000000'" [latitude]="marker.pos[0]" [longitude]="marker.pos[1]"></sebm-google-map-marker>
         <sebm-google-map-polyline>
             <sebm-google-map-polyline-point *ngFor="let path of post.markers" [latitude]="path.pos[0]" [longitude]="path.pos[1]"></sebm-google-map-polyline-point>

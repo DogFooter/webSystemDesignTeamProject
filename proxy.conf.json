@@ -1,6 +1,15 @@
 {
-    "*": {
-        "target": "http://172.30.127.123:3000",
+    "/post": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/user": {
+        "target": "http://localhost:3000",
+        "secure": false
+    }, 
+    "/getgeo": {
+        "target": "http://localhost:3000",
         "secure": false
     }
+
 }

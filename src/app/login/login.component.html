@@ -7,7 +7,7 @@
             <form>
                 <label>Email*<input type="text" name="email" [(ngModel)]="user.email" required></label><br>
                 <label>Password*<input type="password" name="password" [(ngModel)]="user.password" required></label>
-                <button type="button" (click)="logIn()">로그인</button>
+                <button type="button" (click)="logIn()" onClick="window.location.replace('/main')">로그인</button>
             </form>
         </div>
     </div>

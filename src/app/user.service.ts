@@ -29,12 +29,22 @@ export class UserService {
         );
     }
 
-    logOut(user: User): Observable<any> { 
+    logOut(user: string): Observable<any> { 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.userUrl+"/logout", user, options).map(
+        return this.http.post(this.userUrl+"/logout",{}, options).map(
             (r: Response) => r.json().data as any
         );
     }
+
+    loggedIn(): Observable<any>{ 
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.userUrl+"/loggedin",{}, options).map(
+            (r: Response) => r.json().data as any
+        );
+    }
+
 }

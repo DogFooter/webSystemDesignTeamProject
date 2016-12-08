@@ -1,42 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import { MouseEvent, LatLngLiteral } from 'angular2-google-maps/core';
 import { MapMarker } from '../map-marker';
+import { Router } from '@angular/router';
 
 import { Post } from '../post';
 import { PostService } from '../post.service';
+
+import { NationService } from '../nation.service';
 
 @Component({
     selector: 'app-write-post',
     templateUrl: './write-post.component.html',
     styleUrls: ['./write-post.component.css'],
-    providers: [ PostService ]
+    providers: [ PostService, NationService ]
 })
 export class WritePostComponent implements OnInit {
 
     currentPost: Post;
 
+    pos: number[] = [];
     show_writing: boolean = false;
     marker_number: number = 0;
     currentMarker: MapMarker;
     currentMarkerIndex: number;
     markers: MapMarker[] = [];
     total_budget: number = 0;
-    constructor(private postService: PostService) {
+    constructor(private postService: PostService, private router: Router, private nationService: NationService) {
 
         this.currentMarkerIndex = 0;
         this.currentMarker = new MapMarker([0,0],"","", [0,0,0,0,0]);
         this.currentPost = new Post("", "","dogfooter","",-1 , []);
+        this.pos = [0,0];
     }
 
 
     ngOnInit() {
     }
 
+    getNation(nation: string){
+        this.currentPost.nation = nation;
+        this.getGeoByNation(nation);
+        console.log("change geo to ", nation)
+    }
+
+    getGeoByNation(nation: string) {
+        console.log("change geo to ", nation)
+        this.nationService.getGeoByNation(nation).subscribe(
+            // data => console.log(data) && (this.pos = [data.geonames[0].lat, data.geonames[0].lng])
+            data =>(this.pos[0] = data.lat) && (this.pos[1] =data.lng)  
+            // data => (this.pos[0] = 37 ) && (this.pos[1] =127) 
+        );
+
+    }
+
     submitPost() {
         this.currentPost.markers = this.markers;
         console.log(this.currentPost);
         this.postService.addPost(this.currentPost).subscribe(
-            post => this.currentPost = post
+            data => data.error ? alert(data.error) : this.router.navigate(['/main']) 
         );
         
         
@@ -87,7 +108,6 @@ export class WritePostComponent implements OnInit {
 
     }
 
-    pos: number[] = [35,127];
 
     paths: Array<LatLngLiteral> = [];
 
