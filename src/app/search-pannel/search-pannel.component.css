@@ -10,13 +10,11 @@
 }
 
 .search-box {
-  height: 100%;
 }
 .panel-sm{
-  width: 50%;
+  width: 80%;
   text-align: center;
   margin: 0 auto;
-  margin-top: 60px;
   background-color: rgba(0,0,0,0.4);
   font-family: 'Titillium Web', sans-serif;
 }

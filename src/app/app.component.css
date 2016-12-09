@@ -1,4 +1,7 @@
 .container {
     min-width: 480px;
 }
+.router-content {
+    padding-top: 50px;
+}
 

@@ -13,11 +13,13 @@ export class ReadPostComponent implements OnInit {
 
     postNumber: number;
     post: Post;
+    currentWatchMarker: number[];
 
 
     constructor(private postService: PostService) {
         var s = window.location.href.split('/');
 
+        this.currentWatchMarker = null;
         this.postNumber = parseInt(s[s.length-1]);
     } 
 
@@ -27,7 +29,7 @@ export class ReadPostComponent implements OnInit {
 
     getPost() {
         this.postService.getPost(this.postNumber).subscribe(
-            post => this.post = post 
+            post =>( this.post = post  )&&( this.currentWatchMarker = post.markers[0].pos)
         );
     }
 

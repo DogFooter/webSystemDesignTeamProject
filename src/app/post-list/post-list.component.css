@@ -1,6 +1,7 @@
 .recent{
-  text-align: center;
+    text-align: center;
 }
 .panel-backgroundcol{
-  background-color: #f6f6f6;
+    width: 100%;
+    background-color: #f6f6f6;
 }

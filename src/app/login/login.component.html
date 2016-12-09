@@ -1,23 +1,19 @@
 
 <div class="background-col">
-  <div class="container login background-col">
-    <div class="panel-default">
-      <h2 class="login-header">LYF</h2><br>
-      <form>
-        <div class="row">
-          <div class="col-sm-3 label-panel">
-            <label class="label-component">Email:</label><br>
-            <label class="label-component">Password:</label>
-          </div>
-          <div class="col-sm-6 input-panel">
-            <input class="input-component" type="text" name="email" [(ngModel)]="user.email" placeholder="Enter your email" required><br>
-            <input class="input-component" type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" required><br>
-            <button class="btn-login"type="button" (click)="logIn()" onClick="window.location.replace('/main')">
-              <span class="glyphicon glyphicon-ok"></span> 로그인
-            </button>
-          </div>
-        </div>
-      </form>
+    <div class="login">
+        <header>
+            <h2 class="login-header">Login</h2><br>
+            <form>
+                <div class="row">
+                    <div class="input-panel">
+                        <input class="input-component" type="text" name="email" [(ngModel)]="user.email" placeholder="Enter your email" required><br>
+                        <input class="input-component" type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" required><br>
+                        <button class="btn-login"type="button" (click)="logIn()" onClick="window.location.replace('/main')">
+                            <span class="glyphicon glyphicon-ok"></span> 로그인
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </header>
     </div>
-  </div>
 </div>

@@ -1,26 +1,31 @@
 <div class="col-sm-6">
-  <div class="panel panel-primary panel-for-write-marker">
-    <div class="panel-heading"><h3>Description</h3></div>
-    <div class="panel-body panel-location">
-      <form class="form-group form-for-write-marker" action="">
-        <input #_title class="form-control marker-text title" (input)="sendContent()" type="text" [(ngModel)]="this.markerValue.title" name="marker-title" placeholder="Eat lunch here">
-        <textarea #_content class="form-control marker-text content" (input)="sendContent()" [(ngModel)]="this.markerValue.content" name="marker-content"  placeholder="This place is best meal"></textarea>
-
-        <div class="budget-input form-group">
-          <label for="transfer-bud">교통<input id="transfer-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[0]" name="marker-budget" placeholder="5,000">
-          </label>
-          <label for="accom-bud">숙박오타!<input id="acoom-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[1]" name="marker-budget" placeholder="5,000">
-          </label>
-          <label for="food-bud">식사<input id="food-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[2]" name="marker-budget" placeholder="9,000">
-          </label>
-          <label for="play-bud">관광<input id="play-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[3]" name="marker-budget" placeholder="5,000">
-          </label>
-          <label for="etc-bud">기타<input id="etc-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[4]" name="marker-budget" placeholder="5,000">
-          </label>
-          <label><i class="fa fa-usd" aria-hidden="true"></i></label>
+    <div class="panel panel-primary panel-for-write-marker">
+        <div class="panel-heading">
+            <h3>장소 정보</h3>
         </div>
-      </form>
+        <div class="panel-body panel-location">
+            <form class="form-group form-for-write-marker" action="">
+                <label for="marker_title">이름</label>
+                <input #_title class="form-control marker-text title" name="marker_title" (input)="sendContent()" type="text" [(ngModel)]="this.markerValue.title" name="marker-title" placeholder="게스트하우스 숙박">
+                <label for="marker_content">소개</label>
+                <textarea #_content class="form-control marker-text content" name="marker_content" (input)="sendContent()" [(ngModel)]="this.markerValue.content" name="marker-content"  placeholder="이 집은 밥이 맛있다!"></textarea>
+
+                <div class="budget-input form-group">
+                    <label for="transfer-bud">교통<input id="transfer-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[0]" name="marker-budget" placeholder="5,000">
+                    </label>
+                    <label for="accom-bud">숙박<input id="acoom-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[1]" name="marker-budget" placeholder="5,000">
+                    </label>
+                    <label for="food-bud">식사<input id="food-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[2]" name="marker-budget" placeholder="9,000">
+                    </label>
+                    <label for="play-bud">관광<input id="play-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[3]" name="marker-budget" placeholder="5,000">
+                    </label>
+                    <label for="etc-bud">기타<input id="etc-bud" class="form-control marker-text" type="number" (input)="sendContent()" [(ngModel)]="this.markerValue.budget[4]" name="marker-budget" placeholder="5,000">
+                    </label>
+                    <label><i class="fa fa-usd" aria-hidden="true"></i></label>
+                </div>
+
+            </form>
+            <button class="btn btn-danger" (click)="marker_delete()">마커 삭제</button>
+        </div>
     </div>
-  </div>
-  <button class="btn btn-danger" (click)="marker_delete()">마커 삭제</button>
 </div>

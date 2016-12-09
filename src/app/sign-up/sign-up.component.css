@@ -1,45 +1,64 @@
 
 .sign-up{
-  width: 50%;
-  margin:0 auto;
-  background-color: white;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  font-size: 30px;
+    height: 100vh;
+    background-size: cover;
+    margin:0 auto;
+    text-align: center;
+    background-image: url('https://source.unsplash.com/category/nature/1600x900');
+}
+
+.sign-up header {
+
+    position: relative;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+
+    font-family: 'Titillium Web', sans-serif;
+    padding: 3rem;
+    padding-left: auto;
+    padding-right: auto;
+
+    font-size: 1.7rem;
+    transform: translateX(-50%) translateY(-50%);
+
+    background-color: rgba(0,0,0,0.4);
+
+
 }
 .background-col{
-  background-color: #f6f6f6;
+    background-color: #f6f6f6;
 }
 .sign-up-header{
-  font-size: 2em;
-  font-weight: bold;
-  color: darkblue;
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
 }
 .btn-sign-up{
-  background-color: darkblue;
-  border: none;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 13px 123.6px;
+    background-color: darkblue;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1rem 3rem;
 }
 .password-incorrect{
-  color: red;
-  font-size: 20px;
+    color: red;
+    font-size: 20px;
 }
 .input-component{
-  margin-bottom: 15px;
+    margin-bottom: 7px;
+    padding: 1rem;
 }
 .label-component{
-  margin-bottom: 15px;
-}
-.label-panel{
-  padding-right: 0;
-  text-align: right;
+    color: white;
+    width: 100px;
+    font-weight: 200;
+    margin-bottom: 7px;
 }
 .input-panel{
-  padding-left: 0;
+    padding-left: 0;
 }
 

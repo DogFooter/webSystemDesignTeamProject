@@ -1,7 +1,7 @@
 <a routerLink="/read/{{post.number}}">
-    <div class="col-sm-4">
+    <div class="col-md-3">
         <div class="thumbnail">
-            <img src="https://news.xbox.com/wp-content/themes/xbox/theme/img/default/img-default-small.jpg"  style="width:100%;">
+            <img src="{{this.post.image_url}}"  style="width:100%;">
             <div class="caption">
                 <h3>{{this.post.title}}</h3>
                 <p>{{this.post.hint}}</p>

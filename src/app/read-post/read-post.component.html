@@ -1,34 +1,42 @@
 
 <div *ngIf="post" class="content">
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h1>{{post.title}}</h1>
-            <h3>{{post.duration}}</h3>
-            <h4>{{post.author}}</h4>
+    <sebm-google-map *ngIf="currentWatchMarker" [latitude]="currentWatchMarker[0]" [longitude]="currentWatchMarker[1]" [zoom]="15" >
+        <div class="marker-wrapper" *ngFor="let marker of post.markers; let i = index" >
+
+            <a href="#{{i}}">
+                <sebm-google-map-marker  [iconUrl]="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+(i+1)+'|FE6256|000000'" [latitude]="marker.pos[0]" [longitude]="marker.pos[1]" (click)="console.log('dfkadf')"></sebm-google-map-marker>
+            </a>
         </div>
-
-        <div class="panel-body">
-            <p>{{post.hint}}</p>
-        </div>
-    </div>
-
-
-    <sebm-google-map *ngIf="post.markers" [latitude]="post.markers[0].pos[0]" [longitude]="post.markers[0].pos[1]" [zoom]="15" >
-        <sebm-google-map-marker *ngFor="let marker of post.markers; let i = index"  [iconUrl]="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+(i+1)+'|FE6256|000000'" [latitude]="marker.pos[0]" [longitude]="marker.pos[1]"></sebm-google-map-marker>
         <sebm-google-map-polyline>
             <sebm-google-map-polyline-point *ngFor="let path of post.markers" [latitude]="path.pos[0]" [longitude]="path.pos[1]"></sebm-google-map-polyline-point>
         </sebm-google-map-polyline>
     </sebm-google-map>
+    <div class="col-sm-12">
+        <div class="panel panel-primary panel-read-post">
+            <div class="panel-heading">
+                <h1>{{post.title}}</h1>
+                <h3>{{post.duration}}</h3>
+                <h4>{{post.author}}</h4>
+            </div>
 
-    <div *ngFor="let marker of post.markers" class="panel panel-primary">
-        <div class="panel-heading">
-            <h1>{{marker.title}}</h1>
+            <div class="panel-body">
+                <p>{{post.hint}}</p>
+            </div>
         </div>
+    </div>
 
-        <div class="panel-body">
-            <p>{{marker.content}}</p>
-            <p>{{marker.budget}}$</p>
+    <div class="col-sm-12">
+
+        <div *ngFor="let marker of post.markers; let i = index" class="panel panel-primary" id="{{i}}" (click)="currentWatchMarker=marker.pos">
+            <div class="panel-heading">
+                <h3>{{i+1}} {{marker.title}}</h3>
+            </div>
+
+            <div class="panel-body">
+                <p>{{marker.content}}</p>
+                <p>{{marker.budget}}$</p>
+            </div>
         </div>
     </div>
 </div>

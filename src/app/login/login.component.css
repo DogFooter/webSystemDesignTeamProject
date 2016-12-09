@@ -1,40 +1,59 @@
 .login-header{
-  font-size: 2em;
-  font-weight: bold;
-  color: darkblue;
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
 }
 .login{
-  width: 50%;
-  margin: 0 auto;
-  background-color: white;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  font-size: 30px;
+    height: 100vh;
+    background-size: cover;
+    text-align: center;
+    margin: 0 auto;
+    background-image: url('https://source.unsplash.com/category/nature/1600x900');
+}
+
+.login header {
+    position: relative;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+
+    font-family: 'Titillium Web', sans-serif;
+    padding: 3rem;
+    padding-left: auto;
+    padding-right: auto;
+
+    font-size: 1.7rem;
+    transform: translateX(-50%) translateY(-50%);
+
+    background-color: rgba(0,0,0,0.4);
 }
 .background-col{
-  background-color: #f6f6f6;
+    background-color: #f6f6f6;
 }
 .btn-login{
-  background-color: darkblue;
-  border: none;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 13px 128.7875px;
+    background-color: darkblue;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+
 }
 .input-component{
-  margin-bottom: 15px;
-  padding-left: 0;
+    margin: 0 auto;
+    margin-bottom: 7px;
+    padding: 1rem;
 }
 .label-component{
-  margin-bottom: 15px;
+
+    margin-bottom: 7px;
 }
 .label-panel{
-  padding-right: 0;
-  text-align: right;
+    padding-right: 0;
+    text-align: right;
 }
 .input-panel{
-  padding-left: 0;
+    padding-left: 0;
 }
