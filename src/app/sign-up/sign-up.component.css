@@ -1,0 +1,45 @@
+
+.sign-up{
+  width: 50%;
+  margin:0 auto;
+  background-color: white;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  font-size: 30px;
+}
+.background-col{
+  background-color: #f6f6f6;
+}
+.sign-up-header{
+  font-size: 2em;
+  font-weight: bold;
+  color: darkblue;
+}
+.btn-sign-up{
+  background-color: darkblue;
+  border: none;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 13px 123.6px;
+}
+.password-incorrect{
+  color: red;
+  font-size: 20px;
+}
+.input-component{
+  margin-bottom: 15px;
+}
+.label-component{
+  margin-bottom: 15px;
+}
+.label-panel{
+  padding-right: 0;
+  text-align: right;
+}
+.input-panel{
+  padding-left: 0;
+}
+

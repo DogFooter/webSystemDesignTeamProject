@@ -1,5 +1,6 @@
-<div class="container">
-    <app-search-pannel (searchParams)="logParams($event)"></app-search-pannel>
-    <app-post-list *ngIf="listParams" [listParams]="listParams"></app-post-list>
-    <app-post-list [listParams]="mainListParams"></app-post-list>
+
+<div class="search-panel">
+<app-search-pannel (searchParams)="logParams($event)"></app-search-pannel>
 </div>
+<app-post-list *ngIf="listParams" [listParams]="listParams"></app-post-list>
+<app-post-list [listParams]="mainListParams"></app-post-list>

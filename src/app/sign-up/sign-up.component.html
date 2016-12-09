@@ -1,23 +1,30 @@
-<div class="container">
-    <div class="panel-info">
-        <div class="panel-heading">
-            회원가입
+
+<div class="background-col">
+  <div class="container sign-up background-col">
+    <div class="panel-default">
+      <h2 class="sign-up-header">LYF</h2><br>
+      <form>
+        <div class="row">
+          <div class="col-sm-3 label-panel">
+            <label class="label-component">Email:</label><br>
+            <label class="label-component">Nickname:</label><br>
+            <label class="label-component">Password:</label><br>
+            <label class="label-component">Confirm:</label>
+          </div>
+          <div class="col-sm-6 input-panel">
+            <input class="input-component" type="text" name="email" [(ngModel)]="newUser.email" placeholder="Enter email" required><br>
+            <input class="input-component" type="text" name="nickname" [(ngModel)]="newUser.nickname" placeholder="Enter nickname" required><br>
+            <input class="input-component" type="password" name="password" [(ngModel)]="newUser.password" placeholder="Enter password" required><br>
+            <input class="input-component" type="password" name="passwordConfirm" [(ngModel)]="passwordConfirm" placeholder="Confirm password" required><br>
+            <button class="btn-sign-up" [disabled]="newUser.password!=passwordConfirm" type="button" (click)="signUp()">
+              <span class="glyphicon glyphicon-ok"></span>가입하기
+            </button>
+            <div class="password-incorrect" *ngIf="newUser.password!=passwordConfirm">
+              비밀번호가 일치하지 않습니다.
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-            <form>
-                <label>Email*</label>
-                <input type="text" name="email" [(ngModel)]="newUser.email" required><br>
-                <label>Nickname*</label>
-                <input type="text" name="nickname" [(ngModel)]="newUser.nickname" required><br>
-                <label>Password*</label>
-                <input type="password" name="password" [(ngModel)]="newUser.password" required><br>
-                <label>Password Confirm*</label>
-                <input type="password" name="passwordConfirm" [(ngModel)]="passwordConfirm">
-                <button [disabled]="newUser.password!=passwordConfirm" type="button" (click)="signUp()">가입 완료</button>
-                <div *ngIf="newUser.password!=passwordConfirm">
-                    <div>비밀번호틀림</div><br>
-                </div>
-            </form>
-        </div>
+      </form>
     </div>
+  </div>
 </div>
