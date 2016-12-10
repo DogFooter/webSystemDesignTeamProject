@@ -8,7 +8,8 @@
                     <div class="input-panel">
                         <input class="input-component" type="text" name="email" [(ngModel)]="user.email" placeholder="Enter your email" required><br>
                         <input class="input-component" type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" required><br>
-                        <button class="btn-login"type="button" (click)="logIn()" onClick="window.location.replace('/main')">
+                        <button class="btn-login"type="button" (click)="logIn()" >
+                        <!-- <button class="btn&#45;login"type="button" (click)="logIn()" onClick="window.location.replace('/main')"> -->
                             <span class="glyphicon glyphicon-ok"></span> 로그인
                         </button>
                     </div>

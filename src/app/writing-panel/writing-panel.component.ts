@@ -23,7 +23,7 @@ export class WritingPanelComponent implements OnInit {
         this.sendContent();
     }
     sendContent() {
-        this.markerContentEvent.emit(this.markerValue);
+        this.markerContentEvent.emit(this.markerValue); 
     }
     marker_delete() {
         this.markerDeleteEvent.emit(this.marker_index);

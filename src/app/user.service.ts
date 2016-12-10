@@ -25,7 +25,7 @@ export class UserService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.userUrl+'/login', user, options).map(
-            (r: Response) => r.json().data as any
+            (r: Response) => r.json().data as any 
         );
     }
 
@@ -46,5 +46,7 @@ export class UserService {
             (r: Response) => r.json().data as any
         );
     }
+
+
 
 }

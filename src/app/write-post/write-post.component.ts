@@ -25,6 +25,18 @@ export class WritePostComponent implements OnInit {
     currentMarkerIndex: number;
     markers: MapMarker[] = [];
     total_budget: number = 0;
+
+    get totalBudget(): number {
+
+        var sum = 0;
+        for (var i = 0; i < this.markers.length; i++) {
+            for(var j = 0; j < 5; j++) {
+                sum += this.markers[i].budget[j]; 
+            }
+        }
+        return sum;
+    }
+
     constructor(private postService: PostService, private router: Router, private nationService: NationService) {
 
         this.currentMarkerIndex = 0;
@@ -59,8 +71,8 @@ export class WritePostComponent implements OnInit {
         this.postService.addPost(this.currentPost).subscribe(
             data => data.error ? alert(data.error) : this.router.navigate(['/main']) 
         );
-        
-        
+
+
     }
 
     mapClicked($event: MouseEvent) {
@@ -86,24 +98,20 @@ export class WritePostComponent implements OnInit {
     }
     markerUpdate($event: MapMarker) {
         this.currentMarker = $event;
-        this.total_budget = 0;
-        for (var i = 0; i < this.markers.length; i++) {
-            this.total_budget += this.markers[i].budget[0];
-        }
     }
     markerDelete($event: number) {
         console.log("delete :: " + $event + " number ");
         this.markers.splice($event, 1);
         this.paths.splice($event, 1);
         if (this.markers.length > 0) {
-            this.currentMarker = this.markers[0];
+            this.markerUpdate(this.markers[0]);
             this.currentMarkerIndex = 0;
             this.marker_number--;
         }
         else {
             this.marker_number = 0;
             this.currentMarkerIndex = 0;
-            this.currentMarker = new MapMarker([0,0],"","", [0,0,0,0,0]);
+            this.markerUpdate(new MapMarker([0,0],"","", [0,0,0,0,0]))
         }
 
     }

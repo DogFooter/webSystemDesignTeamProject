@@ -40,5 +40,11 @@ export class PostService {
         ); 
     }
 
+    delPost(id: number): Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.get(this.postUrl+'/del/'+id).map((r:Response) => r.json().data as any);
+    }
 
 }

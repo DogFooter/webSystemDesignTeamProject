@@ -27,14 +27,19 @@ export class LoginComponent implements OnInit {
 
 
     ngOnInit() {
+        if (Cookie.get('user'))  {
+            alert('이미 로그인되어있습니다.')
+            window.location.replace('/main')
+
+        }
     }
 
     logIn() {
         this.change = false;
         this.userService.logIn(this.user).subscribe(
-            data => data.error ? alert('login error') : (this.router.navigate(['/main']))&&(Cookie.set('user', data.data.nickname)&&(this.loginEventEmitter.emit(this.change)))
+            data => data.error ? alert(data.error) : (window.location.replace('/main'))&&(Cookie.set('user', data.data.nickname)&&(this.loginEventEmitter.emit(this.change)))
             // data => data.error ? alert('login error') : (this.router.navigate(['/main']))
         );
     }
-    
+
 }

@@ -16,12 +16,13 @@
         <div class="panel panel-primary panel-read-post">
             <div class="panel-heading">
                 <h1>{{post.title}}</h1>
-                <h3>{{post.duration}}</h3>
-                <h4>{{post.author}}</h4>
+                <h3>{{post.duration}} 일 여행</h3>
+                <h4>{{post.author}} 님께서 작성 하셨습니다</h4>
             </div>
 
             <div class="panel-body">
                 <p>{{post.hint}}</p>
+                <p>총 예산 : {{totalBudget}} <i class="fa fa-usd" aria-hidden="true"></i></p>
             </div>
         </div>
     </div>
@@ -35,9 +36,15 @@
 
             <div class="panel-body">
                 <p>{{marker.content}}</p>
-                <p>{{marker.budget}}$</p>
+                <span>예산</span> <br>
+                <span>교통 : {{marker.budget[0]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                <span>숙박 : {{marker.budget[1]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                <span>식사 : {{marker.budget[2]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                <span>관광 : {{marker.budget[3]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                <span>기타 : {{marker.budget[4]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>
+    <button class="btn btn-danger btn-del-post" (click)="delPost()">삭제</button>
 </div>
 

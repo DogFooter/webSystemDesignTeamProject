@@ -1,8 +1,8 @@
 .content {
     height: 100vh;
     background-size: cover;
-    background-image: url('https://source.unsplash.com/category/nature/1600x900');
 }
+
 .sebm-google-map-container {
     z-index: 20;
     position:fixed;
@@ -12,4 +12,10 @@
 }
 .panel-read-post {
     margin-top : 37vh;
+}
+.btn-del-post {
+    position: fixed;
+    z-index: 21;
+    bottom: 25px;
+    right: 30px;
 }

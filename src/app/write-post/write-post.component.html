@@ -18,34 +18,45 @@
             </div>
         </div>
 
-        <div>
-            <div class="col-sm-6 map-for-write">
-                <div class="panel panel-primary panel-for-map">
-                    <div class="panel-heading"><h3>지도</h3></div>
-                    <div class="panel-body panel-location">
-                        <sebm-google-map [latitude]="pos[0]" [longitude]="pos[1]" [zoom]="11" (mapClick)="mapClicked($event)" >
-                            <sebm-google-map-marker *ngFor="let point of paths; let i = index" [latitude]="point.lat" [longitude]="point.lng" [iconUrl]="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+(i+1)+'|FE6256|000000'" [openInfoWindow]="true" (markerClick)="markerClicked(i)">
-                            </sebm-google-map-marker>
-                            <sebm-google-map-polyline>
-                                <sebm-google-map-polyline-point *ngFor="let point of paths" [latitude]="point.lat" [longitude]="point.lng" > </sebm-google-map-polyline-point>
-                            </sebm-google-map-polyline>
-                        </sebm-google-map>
-                    </div>
+        <div class="col-sm-6 map-for-write">
+            <div class="panel panel-primary panel-for-map">
+                <div class="panel-heading"><h3>지도</h3></div>
+                <div class="panel-body panel-location">
+                    <sebm-google-map [latitude]="pos[0]" [longitude]="pos[1]" [zoom]="11" (mapClick)="mapClicked($event)" >
+                        <sebm-google-map-marker *ngFor="let point of paths; let i = index" [latitude]="point.lat" [longitude]="point.lng" [iconUrl]="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+(i+1)+'|FE6256|000000'" [openInfoWindow]="true" (markerClick)="markerClicked(i)">
+                        </sebm-google-map-marker>
+                        <sebm-google-map-polyline>
+                            <sebm-google-map-polyline-point *ngFor="let point of paths" [latitude]="point.lat" [longitude]="point.lng" > </sebm-google-map-polyline-point>
+                            * 1  </sebm-google-map-polyline>
+                    </sebm-google-map>
                 </div>
             </div>
-            <!-- <app&#45;writing&#45;panel (marker_content)="currentMarker=$event" [show]="show_writing" [markerValue]="currentMarker"></app&#45;writing&#45;panel> -->
-            <app-writing-panel (marker_content)="markerUpdate($event)"  (marker_delete)="markerDelete($event)" [marker_index]="currentMarkerIndex" [show]="show_writing" [markerValue]="currentMarker"></app-writing-panel>
+        </div>
+        <!-- <app&#45;writing&#45;panel (marker_content)="currentMarker=$event" [show]="show_writing" [markerValue]="currentMarker"></app&#45;writing&#45;panel> -->
+        <app-writing-panel (marker_content)="markerUpdate($event)"  (marker_delete)="markerDelete($event)" [marker_index]="currentMarkerIndex" [show]="show_writing" [markerValue]="currentMarker"></app-writing-panel>
+        <!-- <app&#45;writing&#45;panel (marker_content)="markerUpdate($event)"  (marker_delete)="markerDelete($event)" [marker_index]="currentMarkerIndex" [show]="show_writing" [(ngModel)]="currentMarker"></app&#45;writing&#45;panel> -->
+
+
+        <div class="col-sm-12">
+
+            <div *ngFor="let marker of markers; let i = index" class="making-list panel panel-primary">
+                <div class="panel-heading"><p>#{{i+1}} :: {{marker.title}}</p></div>
+                <div class="panel-body">
+                    <p>{{marker.content}}</p>
+                    <span>예산</span> <br>
+                    <span>교통 : {{marker.budget[0]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                    <span>숙박 : {{marker.budget[1]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                    <span>식사 : {{marker.budget[2]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                    <span>관광 : {{marker.budget[3]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                    <span>기타 : {{marker.budget[4]}} <i class="fa fa-usd" aria-hidden="true"></i></span>
+                </div>
+            </div>
         </div>
 
-
-
-        <div *ngFor="let marker of markers; let i = index" class="making-list panel panel-primary">
-            <div class="panel-heading"><p>#{{i+1}} :: {{marker.title}}</p></div>
-            <div class="panel-body"><p>{{marker.content}}<p><span>예산 : {{marker.budget}} <i class="fa fa-usd" aria-hidden="true"></i></span></p></div>
-        </div>
-
-        <div *ngIf="markers.length >= 1">
-            <p>총 예산 : {{total_budget}} <i class="fa fa-usd" aria-hidden="true"></i></p>
+        <div class="col-sm-12">
+            <div class="total-budget" *ngIf="markers.length >= 1">
+                <p>총 예산 : {{totalBudget}} <i class="fa fa-usd" aria-hidden="true"></i></p>
+            </div>
         </div>
 
         <button class="btn btn-primary btn-submit-post" type="button" (click)="submitPost()">작성 완료</button>
